@@ -1,7 +1,10 @@
 {
-  "name": "threejs-snapshot-serializer",
-  "version": "1.2.0",
-  "description": "Jest snapshot serializer for THREE objects",
+  "name": "jest-three",
+  "version": "1.3.0",
+  "license": "MIT",
+  "description": "Jest testing utilities for Three.js. Includes a snapshot serializer for Three.js objects.",
+  "homepage": "https://github.com/Bartozzz/jest-three",
+  "bugs": "https://github.com/Bartozzz/jest-three/issues",
   "main": "dist/three-snapshot-serializer.umd.js",
   "module": "dist/three-snapshot-serializer.es5.js",
   "typings": "dist/types/three-snapshot-serializer.d.ts",
@@ -10,14 +13,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Bartozzz/threejs-snapshot-serializer"
+    "url": "https://github.com/Bartozzz/jest-three"
   },
-  "license": "MIT",
   "engines": {
     "node": ">=6.0.0"
   },
-  "homepage": "https://github.com/Bartozzz/threejs-snapshot-serializer",
-  "bugs": "https://github.com/Bartozzz/threejs-snapshot-serializer/issues",
   "scripts": {
     "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
