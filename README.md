@@ -36,7 +36,7 @@ You can also import `toJSON` to use the snapshot serializer in one assertion, li
 ```js
 import { toJSON } from "jest-three";
 
-expect(toJSON(object)).matchesSnapshot();
+expect(toJSON(object)).toMatchSnapshot();
 // …where `object` is an instance of `THREE.Object3D`
 ```
 
