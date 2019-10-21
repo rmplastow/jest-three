@@ -1,35 +1,45 @@
-# three-snapshot-serializer
+# jest-three
 
-Jest snapshot serializer for THREE objects
+> Jest testing utilities for [Three.js](https://threejs.org/). Includes a snapshot serializer for Three.js objects.
 
-## Usage
+## Installation
 
-```sh
-$ npm install three-snapshot-serializer --save-dev
+```
+npm install --save-dev jest-three
 ```
 
-To use for all test files, add the following to package.json:
+## Snapshot Serializer
 
-```json
-{
-  "jest": {
-    "snapshotSerializers": ["three-snapshot-serializer"]
-  }
-}
-```
-
-To use in one test file:
+The easiest way to test [Three.js](https://threejs.org/) objects is with the snapshot serializer. You can register the serializer via the `snapshotSerializers` configuration property in your `jest` configuration like so:
 
 ```js
-import { createSerializer } from "three-snapshot-serializer";
-
-expect.addSnapshotSerializer(createSerializer({ dropUUIDs: true }));
+// jest.config.js
+module.exports = {
+  snapshotSerializers: ["jest-three"]
+};
 ```
 
-To use in one assertion:
+Or you can customize the serializer via the `createSerializer` method like so:
 
 ```js
-import { toJSON } from "three-snapshot-serializer";
+import { createSerializer } from "jest-three";
 
-expect(toJSON(obj)).matchesSnapshot();
+expect.addSnapshotSerializer(
+  createSerializer({
+    shouldReplaceUUIDs: true
+  })
+);
 ```
+
+You can also import `toJSON` to use the snapshot serializer in one assertion, like so:
+
+```js
+import { toJSON } from "jest-three";
+
+expect(toJSON(object)).matchesSnapshot();
+// …where `object` is an instance of `THREE.Object3D`
+```
+
+## Thanks
+
+Thanks to [Dan Kaplun](https://github.com/dbkaplun) who wrote [`three-snapshot-serializer`](https://github.com/dbkaplun/three-snapshot-serializer) which this library is based on.
