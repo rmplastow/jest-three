@@ -8,10 +8,6 @@
   "main": "dist/three-snapshot-serializer.umd.js",
   "module": "dist/three-snapshot-serializer.es5.js",
   "typings": "dist/types/three-snapshot-serializer.d.ts",
-  "files": [
-    "src",
-    "dist"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Bartozzz/jest-three"
