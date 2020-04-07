@@ -12,7 +12,10 @@ exports.UUID_REGEX = /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{
  */
 function numToUUID(id) {
     var hex = id.toString(16).toUpperCase();
-    return "" + exports.UUID_PLACEHOLDER.slice(0, -hex.length) + hex;
+    // Transform hex to match the UUID suffix format:
+    var paddedHex = hex.padStart(4 + 12, "0");
+    var safeSuffix = paddedHex.slice(0, 4) + "-" + paddedHex.slice(4, 16);
+    return "" + exports.UUID_PLACEHOLDER.slice(0, -safeSuffix.length) + safeSuffix;
 }
 exports.numToUUID = numToUUID;
 /**
