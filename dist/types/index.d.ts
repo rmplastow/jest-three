@@ -1,6 +1,9 @@
+import createCamera from "./createCamera";
+import createRenderer from "./createRenderer";
+import createScene from "./createScene";
+import createSnapshotSerializer from "./createSnapshotSerializer";
 import toJSON from "./toJSON";
-import createSerializer from "./serializer";
-export { toJSON, createSerializer };
+export { createCamera, createRenderer, createScene, createSnapshotSerializer, toJSON };
 declare const _default: {
     test(object: any): boolean;
     print(object: import("three").Object3D, printer: Function): any;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`createSerializer should create a JSON snapshot for a THREE.Object3D 1`] = `
+exports[`createSnapshotSerializer should create a JSON snapshot for a THREE.Object3D 1`] = `
 Object {
   "geometries": Array [
     Object {

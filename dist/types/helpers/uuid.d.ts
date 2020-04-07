@@ -1,3 +1,4 @@
+/// <reference types="ts-toolbelt" />
 export declare type UUID = string;
 export declare type UUIDMap = Map<UUID, UUID>;
 export declare const UUID_PLACEHOLDER = "00000000-0000-0000-0000-000000000000";
@@ -13,7 +14,7 @@ export declare function numToUUID(id: number): string;
  * Replaces the UUID with substitute from map. If there is no substitute,
  * generates a new one.
  */
-export declare const replaceUUID: import("ts-toolbelt/out/types/src/Function/Curry").Curry<(map: Map<string, string>, uuid: string) => any>;
+export declare const replaceUUID: import("Function/Curry").Curry<(map: Map<string, string>, uuid: string) => any>;
 /**
  * Replaces all UUIDs with generated, well-known substitutes. Assures that each
  * UUID is the same across snapshots.

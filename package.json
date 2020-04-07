@@ -5,8 +5,7 @@
   "description": "Jest testing utilities for Three.js. Includes a snapshot serializer for Three.js objects.",
   "homepage": "https://github.com/Bartozzz/jest-three",
   "bugs": "https://github.com/Bartozzz/jest-three/issues",
-  "main": "dist/three-snapshot-serializer.umd.js",
-  "module": "dist/three-snapshot-serializer.es5.js",
+  "main": "dist/lib/",
   "typings": "dist/types/index.d.ts",
   "files": [
     "dist"
@@ -19,33 +18,26 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
-    "prebuild": "rimraf dist",
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts",
-    "start": "rollup -c rollup.config.ts -w",
-    "test": "jest --coverage",
-    "test:watch": "jest --coverage --watch"
+    "prebuild": "npx rimraf dist",
+    "build": "npx tsc",
+    "pretest": "npm run build",
+    "test": "npm run test:unit && npm run test:lint",
+    "test:unit": "npx jest --coverage",
+    "test:lint": "echo 0"
   },
   "peerDependencies": {
     "three": "^0.92.0"
   },
   "devDependencies": {
+    "@types/gl": "4.1.0",
     "@types/jest": "^25.2.1",
     "@types/node": "^13.11.0",
     "@types/ramda": "0.27.3",
     "jest": "^25.2.7",
     "jest-config": "^23.6.0",
     "lint-staged": "^10.1.2",
-    "lodash.camelcase": "4.3.0",
     "prettier": "^2.0.4",
     "rimraf": "^3.0.2",
-    "rollup": "^0.67.0",
-    "rollup-plugin-commonjs": "^9.1.8",
-    "rollup-plugin-json": "^3.1.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-sourcemaps": "^0.4.2",
-    "rollup-plugin-terser": "5.3.0",
-    "rollup-plugin-typescript2": "0.27.0",
     "three": "0.109.0",
     "ts-jest": "^25.3.1",
     "ts-node": "^7.0.1",
@@ -55,6 +47,8 @@
     "typescript": "^3.0.3"
   },
   "dependencies": {
+    "canvas": "2.6.1",
+    "gl": "4.4.1",
     "ramda": "0.26.1"
   }
 }

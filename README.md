@@ -15,18 +15,18 @@ The easiest way to test [Three.js](https://threejs.org/) objects is with the sna
 ```js
 // jest.config.js
 module.exports = {
-  snapshotSerializers: ["jest-three"]
+  snapshotSerializers: ["jest-three"],
 };
 ```
 
-Or you can customize the serializer via the `createSerializer` method like so:
+Or you can customize the serializer via the `createSnapshotSerializer` method like so:
 
 ```js
-import { createSerializer } from "jest-three";
+import { createSnapshotSerializer } from "jest-three";
 
 expect.addSnapshotSerializer(
-  createSerializer({
-    shouldReplaceUUIDs: true
+  createSnapshotSerializer({
+    shouldReplaceUUIDs: true,
   })
 );
 ```
@@ -38,6 +38,60 @@ import { toJSON } from "jest-three";
 
 expect(toJSON(object)).toMatchSnapshot();
 // …where `object` is an instance of `THREE.Object3D`
+```
+
+## Factories
+
+We have prepared some factories to create basic [Three.js](https://threejs.org/) objects such as a WebGL renderer, camera and scene.
+
+### `createCamera`
+
+```ts
+import { createCamera } from "jest-three";
+
+const config = {};
+const camera = createCamera(config);
+
+expect(camera).toBeInstanceOf(THREE.PerspectiveCamera);
+```
+
+### `createRenderer`
+
+```ts
+import { createRenderer } from "jest-three";
+
+const config = {};
+const renderer = createRenderer(config);
+
+expect(renderer).toBeInstanceOf(THREE.WebGLRenderer);
+```
+
+> **Note:** Canvas is build with [`canvas`](https://www.npmjs.com/package/canvas).
+
+> **Note:** WebGL context is build with [`gl`](https://www.npmjs.com/package/gl).
+
+### `createScene`
+
+```ts
+import { createScene } from "jest-three";
+
+const objA = new THREE.Mesh();
+const objB = new THREE.Mesh();
+const scene = createScene();
+
+scene.add(objA);
+expect(scene.children.length).toBe(1);
+expect(scene.children[0]).toBe(objA);
+
+scene.add(objB);
+expect(scene.children.length).toBe(2);
+expect(scene.children[1]).toBe(objB);
+```
+
+## Tests
+
+```bash
+$ npm test
 ```
 
 ## Thanks

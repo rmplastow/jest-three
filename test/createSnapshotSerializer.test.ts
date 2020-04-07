@@ -1,9 +1,9 @@
 import * as THREE from "three";
-import createSerializer from "../src/serializer";
+import createSnapshotSerializer from "../src/createSnapshotSerializer";
 
-expect.addSnapshotSerializer(createSerializer());
+expect.addSnapshotSerializer(createSnapshotSerializer());
 
-describe("createSerializer", () => {
+describe("createSnapshotSerializer", () => {
   it("should create a JSON snapshot for a THREE.Object3D", () => {
     const obj = new THREE.Mesh(
       new THREE.BoxGeometry(1, 1, 1),
