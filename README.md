@@ -1,5 +1,11 @@
 # jest-three
 
+[![Default CI/CD](https://github.com/Bartozzz/jest-three/workflows/Default%20CI/CD/badge.svg)](https://github.com/Bartozzz/jest-three/actions)
+[![Known Vulnerabilities](https://snyk.io/test/github/Bartozzz/jest-three/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Bartozzz/jest-three?targetFile=package.json)
+[![npm version](https://img.shields.io/npm/v/jest-three.svg)](https://www.npmjs.com/package/jest-three)
+[![npm dependency Status](https://david-dm.org/Bartozzz/jest-three.svg)](https://www.npmjs.com/package/jest-three)
+[![npm downloads](https://img.shields.io/npm/dt/jest-three.svg)](https://www.npmjs.com/package/jest-three)
+
 > Jest testing utilities for [Three.js](https://threejs.org/). Includes a snapshot serializer for Three.js objects.
 
 ## Installation
