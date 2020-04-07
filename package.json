@@ -22,7 +22,7 @@
     "build": "npx tsc",
     "pretest": "npm run build",
     "test": "npm run test:unit && npm run test:lint",
-    "test:unit": "npx jest --coverage",
+    "test:unit": "npx jest",
     "test:lint": "echo 0"
   },
   "peerDependencies": {
